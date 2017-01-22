@@ -27,7 +27,6 @@
 package com.flowpowered.noise.module.combiner;
 
 import com.flowpowered.noise.Utils;
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 public class Select extends Module {
@@ -51,9 +50,6 @@ public class Select extends Module {
     }
 
     public Module getControlModule() {
-        if (sourceModule == null || sourceModule[2] == null) {
-            throw new NoModuleException();
-        }
         return sourceModule[2];
     }
 
@@ -99,16 +95,6 @@ public class Select extends Module {
 
     @Override
     public double getValue(double x, double y, double z) {
-        if (sourceModule[0] == null) {
-            throw new NoModuleException();
-        }
-        if (sourceModule[1] == null) {
-            throw new NoModuleException();
-        }
-        if (sourceModule[2] == null) {
-            throw new NoModuleException();
-        }
-
         double controlValue = sourceModule[2].getValue(x, y, z);
         double alpha;
         if (edgeFalloff > 0.0) {

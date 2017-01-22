@@ -27,7 +27,6 @@
 package com.flowpowered.noise.model;
 
 import com.flowpowered.noise.Utils;
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 /**
@@ -77,9 +76,6 @@ public class Sphere {
      * @return The output value from the noise module.
      */
     public double getValue(double lat, double lon) {
-        if (module == null) {
-            throw new NoModuleException();
-        }
         double[] vec = Utils.latLonToXYZ(lat, lon);
         return module.getValue(vec[0], vec[1], vec[2]);
     }

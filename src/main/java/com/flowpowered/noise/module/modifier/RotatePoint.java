@@ -26,7 +26,6 @@
  */
 package com.flowpowered.noise.module.modifier;
 
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 public class RotatePoint extends Module {
@@ -130,10 +129,6 @@ public class RotatePoint extends Module {
 
     @Override
     public double getValue(double x, double y, double z) {
-        if (sourceModule[0] == null) {
-            throw new NoModuleException();
-        }
-
         double nx = (x1Matrix * x) + (y1Matrix * y) + (z1Matrix * z);
         double ny = (x2Matrix * x) + (y2Matrix * y) + (z2Matrix * z);
         double nz = (x3Matrix * x) + (y3Matrix * y) + (z3Matrix * z);

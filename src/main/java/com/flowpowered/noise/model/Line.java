@@ -26,7 +26,6 @@
  */
 package com.flowpowered.noise.model;
 
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 /**
@@ -140,10 +139,6 @@ public class Line {
      * @return The output value from the noise module.
      */
     public double getValue(double p) {
-        if (module == null) {
-            throw new NoModuleException();
-        }
-
         double x = (x1 - x0) * p + x0;
         double y = (y1 - y0) * p + y0;
         double z = (z1 - z0) * p + z0;

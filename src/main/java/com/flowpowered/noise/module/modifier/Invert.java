@@ -26,7 +26,6 @@
  */
 package com.flowpowered.noise.module.modifier;
 
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 public class Invert extends Module {
@@ -41,9 +40,6 @@ public class Invert extends Module {
 
     @Override
     public double getValue(double x, double y, double z) {
-        if (sourceModule[0] == null) {
-            throw new NoModuleException();
-        }
         return -sourceModule[0].getValue(x, y, z);
     }
 }

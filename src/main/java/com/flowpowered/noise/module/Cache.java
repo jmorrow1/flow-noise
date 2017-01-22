@@ -26,8 +26,6 @@
  */
 package com.flowpowered.noise.module;
 
-import com.flowpowered.noise.exception.NoModuleException;
-
 public class Cache extends Module {
     // The cached output value at the cached input value.
     private double cachedValue;
@@ -58,10 +56,6 @@ public class Cache extends Module {
 
     @Override
     public double getValue(double x, double y, double z) {
-        if (sourceModule[0] == null) {
-            throw new NoModuleException();
-        }
-
         if (!(isCached && x == xCache && y == yCache && z == zCache)) {
             cachedValue = sourceModule[0].getValue(x, y, z);
             xCache = x;

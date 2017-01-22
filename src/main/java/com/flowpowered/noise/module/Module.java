@@ -26,14 +26,12 @@
  */
 package com.flowpowered.noise.module;
 
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.source.Const;
 
 public abstract class Module {
     protected Module[] sourceModule;
 
     public Module(int sourceModuleCount) {
-
         // Create an array of pointers to all source modules required by this
         // noise module. Set these pointers to Const modules.
         sourceModule = new Module[sourceModuleCount];
@@ -43,9 +41,6 @@ public abstract class Module {
     }
 
     public Module getSourceModule(int index) {
-        if (index >= getSourceModuleCount() || index < 0 || sourceModule[index] == null) {
-            throw new NoModuleException();
-        }
         return (sourceModule[index]);
     }
 

@@ -26,7 +26,6 @@
  */
 package com.flowpowered.noise.module.modifier;
 
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 import com.flowpowered.noise.module.source.Perlin;
 
@@ -94,10 +93,6 @@ public class Turbulence extends Module {
 
     @Override
     public double getValue(double x, double y, double z) {
-        if (sourceModule[0] == null) {
-            throw new NoModuleException();
-        }
-
         // Get the values from the three noise::module::Perlin noise modules and
         // add each value to each coordinate of the input value.  There are also
         // some offsets added to the coordinates of the input values.  This prevents

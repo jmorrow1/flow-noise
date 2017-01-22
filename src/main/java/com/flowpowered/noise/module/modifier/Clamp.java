@@ -26,7 +26,6 @@
  */
 package com.flowpowered.noise.module.modifier;
 
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 public class Clamp extends Module {
@@ -62,10 +61,6 @@ public class Clamp extends Module {
 
     @Override
     public double getValue(double x, double y, double z) {
-        if (sourceModule[0] == null) {
-            throw new NoModuleException();
-        }
-
         double value = sourceModule[0].getValue(x, y, z);
         if (value < lowerBound) {
             return lowerBound;

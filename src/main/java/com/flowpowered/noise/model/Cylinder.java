@@ -26,7 +26,6 @@
  */
 package com.flowpowered.noise.model;
 
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 /**
@@ -73,10 +72,6 @@ public class Cylinder {
      * @return The output value from the noise module.
      */
     public double getValue(double angle, double height) {
-        if (module == null) {
-            throw new NoModuleException();
-        }
-
         double x, y, z;
         x = Math.cos(Math.toRadians(angle));
         y = height;

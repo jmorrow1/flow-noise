@@ -26,7 +26,6 @@
  */
 package com.flowpowered.noise.module.combiner;
 
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 public class Displace extends Module {
@@ -40,23 +39,14 @@ public class Displace extends Module {
     }
 
     public Module getXDisplaceModule() {
-        if (sourceModule == null || sourceModule[1] == null) {
-            throw new NoModuleException();
-        }
         return sourceModule[1];
     }
 
     public Module getYDisplaceModule() {
-        if (sourceModule == null || sourceModule[2] == null) {
-            throw new NoModuleException();
-        }
         return sourceModule[2];
     }
 
     public Module getZDisplaceModule() {
-        if (sourceModule == null || sourceModule[3] == null) {
-            throw new NoModuleException();
-        }
         return sourceModule[3];
     }
 
@@ -89,19 +79,6 @@ public class Displace extends Module {
 
     @Override
     public double getValue(double x, double y, double z) {
-        if (sourceModule[0] == null) {
-            throw new NoModuleException();
-        }
-        if (sourceModule[1] == null) {
-            throw new NoModuleException();
-        }
-        if (sourceModule[2] == null) {
-            throw new NoModuleException();
-        }
-        if (sourceModule[3] == null) {
-            throw new NoModuleException();
-        }
-
         // Get the output values from the three displacement modules.  Add each
         // value to the corresponding coordinate in the input value.
         double xDisplace = x + sourceModule[1].getValue(x, y, z);

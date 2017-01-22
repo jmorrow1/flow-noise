@@ -27,7 +27,6 @@
 package com.flowpowered.noise.module.modifier;
 
 import com.flowpowered.noise.Utils;
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 public class Terrace extends Module {
@@ -129,10 +128,6 @@ public class Terrace extends Module {
 
     @Override
     public double getValue(double x, double y, double z) {
-        if (sourceModule[0] == null) {
-            throw new NoModuleException();
-        }
-
         // Get the output value from the source module.
         double sourceModuleValue = sourceModule[0].getValue(x, y, z);
 

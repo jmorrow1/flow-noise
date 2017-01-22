@@ -26,7 +26,6 @@
  */
 package com.flowpowered.noise.model;
 
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 /**
@@ -78,9 +77,6 @@ public class Plane {
      * @return The output value from the noise module.
      */
     public double getValue(double x, double z) {
-        if (module == null) {
-            throw new NoModuleException();
-        }
         return module.getValue(x, 0, z);
     }
 }

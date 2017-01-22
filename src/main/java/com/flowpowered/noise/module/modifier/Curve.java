@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.flowpowered.noise.Utils;
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 public class Curve extends Module {
@@ -83,9 +82,6 @@ public class Curve extends Module {
 
     @Override
     public double getValue(double x, double y, double z) {
-        if (sourceModule[0] == null) {
-            throw new NoModuleException();
-        }
         final int size = controlPoints.size();
         if (size < 4) {
             throw new RuntimeException("Curve module must have at least 4 control points");

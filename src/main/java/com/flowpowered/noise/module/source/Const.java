@@ -35,6 +35,11 @@ public class Const extends Module {
     public Const() {
         super(0);
     }
+    
+    public Const(int value) {
+        super(0);
+        setValue(value);
+    }
 
     public double getValue() {
         return value;

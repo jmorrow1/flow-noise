@@ -26,7 +26,6 @@
  */
 package com.flowpowered.noise.module.modifier;
 
-import com.flowpowered.noise.exception.NoModuleException;
 import com.flowpowered.noise.module.Module;
 
 public class Exponent extends Module {
@@ -52,9 +51,6 @@ public class Exponent extends Module {
 
     @Override
     public double getValue(double x, double y, double z) {
-        if (sourceModule[0] == null) {
-            throw new NoModuleException();
-        }
         double value = sourceModule[0].getValue(x, y, z);
         return Math.pow(value, exponent);
     }
